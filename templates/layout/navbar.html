@@ -1,0 +1,81 @@
+{% load static %}
+<!-- Navigation-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container px-4 px-lg-5">
+                <a class="navbar-brand" href="{% url 'home' %}"><img src="{% static 'assets/logo.jpg' %}"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4"></ul>
+                    <div class="btn-group">    
+                        <button type="button" class="btn btn-outline-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Acasă
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Arme lise de vânătoare</a></li>
+                            <li><a class="dropdown-item" href="#">Carabine de vânătoare</a></li>
+                            <li><a class="dropdown-item" href="#">Muniții arme lise</a></li>
+                            <li><a class="dropdown-item" href="#">Muniții carabină</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Vezi tot</a></li>
+                        </ul>
+                    </div>  
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-outline-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Vânătoare
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Arme lise de vânătoare</a></li>
+                            <li><a class="dropdown-item" href="#">Carabine de vânătoare</a></li>
+                            <li><a class="dropdown-item" href="#">Muniții arme lise</a></li>
+                            <li><a class="dropdown-item" href="#">Muniții carabină</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Vezi tot</a></li>
+                        </ul>
+                    </div>    
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-outline-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Echipamente de vânatoare
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Geci</a></li>
+                            <li><a class="dropdown-item" href="#">Pantaloni</a></li>
+                            <li><a class="dropdown-item" href="#">Veste</a></li>
+                            <li><a class="dropdown-item" href="#">Bluze și pulovere</a></li>
+                            <li><a class="dropdown-item" href="#">Tricouri</a></li>
+                            <li><a class="dropdown-item" href="#">Haine de corp</a></li>
+                            <li><a class="dropdown-item" href="#">Pălării/Căciuli/Șepci</a></li>
+                            <li><a class="dropdown-item" href="#">Mănuși</a></li>
+                            <li><a class="dropdown-item" href="#">Cizme</a></li>
+                            <li><a class="dropdown-item" href="#">Rucsacuri si genți</a></li>
+                            <li><a class="dropdown-item" href="#">Accesorii</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Vezi tot</a></li>
+                        </ul>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-outline-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                            Despre noi
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Separated link</a></li>
+                        </ul>
+                    </div>    
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-outline-success ">
+                            <a class="dropdown-item" href="{% url 'login' %}">Login</a>
+                        </button>
+                    </div>
+                        <form class="d-flex">
+                            <button class="btn btn-outline-dark" type="submit">
+                                <i class="bi-cart-fill me-1"></i>
+                                Cart
+                                <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+        </nav>
