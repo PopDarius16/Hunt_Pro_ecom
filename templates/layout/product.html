@@ -18,7 +18,12 @@
             <center>  
             <h5 class="card-title">{{ product.name }}</h5>
             <p class="card-text justified">{{ product.description }}</p>
-            <a href="{% url 'home' %}" class="btn btn-secondary">Pagina principala</a>    
+                
+                {{ product.price }} lei
+            
+            <br/><br/>    
+            <a href="{% url 'home' %}" class="btn btn-secondary">Pagina principala</a> 
+            <button type="button" value="{{ product.id }}" class="btn btn-secondary" id="add-cart">Add To Cart</button>    
             </center>      
           </div>
         </div>
@@ -26,7 +31,32 @@
     </div> 
 </div>
         
+<script>
+$(document).on('click', '#add-cart', function(e){
+    e.preventDefault();
+    $.ajax({
+        type: 'POST',
+        url: '{% url 'cart_add' %}',
+        data: {
+            product_id: $('#add-cart').val(),
+            csrfmiddlewaretoken: '{{ csrf_token }}',
+            action: 'post'
+        },
+        success: function(json){
+            console.log(json)
+        },
+        error: function(xhr, errmsg, err){
+            
+        }
+        
+    });
+    
+    
+})
 
+
+
+</script>
                     
     
     

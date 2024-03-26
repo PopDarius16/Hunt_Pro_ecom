@@ -6,28 +6,15 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4"></ul>
-                    <div class="btn-group">    
-                        <button type="button" class="btn btn-outline-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            Acasă
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Arme lise de vânătoare</a></li>
-                            <li><a class="dropdown-item" href="#">Carabine de vânătoare</a></li>
-                            <li><a class="dropdown-item" href="#">Muniții arme lise</a></li>
-                            <li><a class="dropdown-item" href="#">Muniții carabină</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Vezi tot</a></li>
-                        </ul>
-                    </div>  
                     <div class="btn-group">
                         <button type="button" class="btn btn-outline-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
                             Vânătoare
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Arme lise de vânătoare</a></li>
-                            <li><a class="dropdown-item" href="#">Carabine de vânătoare</a></li>
-                            <li><a class="dropdown-item" href="#">Muniții arme lise</a></li>
-                            <li><a class="dropdown-item" href="#">Muniții carabină</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category' 'Arme-lise-de-vânătoare' %}">Arme lise de vânătoare</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category' 'Carabine-de-vânătoare' %}">Carabine de vânătoare</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category' 'Muniții-arme-lise' %}">Muniții arme lise</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category' 'Muniții-carabină' %}">Muniții carabină</a></li>
                             <li><hr class="dropdown-divider"></li>
                             <li><a class="dropdown-item" href="#">Vezi tot</a></li>
                         </ul>
@@ -70,11 +57,9 @@
                         </button>
                     </div>
                         <form class="d-flex">
-                            <button class="btn btn-outline-dark" type="submit">
-                                <i class="bi-cart-fill me-1"></i>
+                            <a href="{% url 'cart_summary' %}" class="btn btn-outline-dark"><i class="bi-cart-fill me-1"></i>
                                 Cart
-                                <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                            </button>
+                                <span class="badge bg-dark text-white ms-1 rounded-pill">0</span></a>
                         </form>
                     </div>
                 </div>
