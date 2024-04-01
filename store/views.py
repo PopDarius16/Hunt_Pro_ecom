@@ -2,8 +2,12 @@ from .models import Product, Category
 from django.contrib.auth import login, logout
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.contrib.auth import get_user_model  # Import the get_user_model function
-# Create your views here.
+from django.contrib.auth import get_user_model
+
+
+def category_summary(request):
+    categories = Category.objects.all()
+    return render(request, 'layout/category_summary.html', {"categories": categories})
 
 
 def product(request,pk):
@@ -24,6 +28,7 @@ def category(request,foo):
 
 def home(request):
     products = Product.objects.all()
+    paginate_by = 20
     return render(request, 'layout/home.html', {'products': products})
 
 

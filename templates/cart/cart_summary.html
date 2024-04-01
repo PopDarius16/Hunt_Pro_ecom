@@ -55,7 +55,7 @@
                             <br/><br/>    
                             <a href="{% url 'home' %}" class="btn btn-secondary">Pagina principala</a>
                             <button type="button" data-index="{{ product.id }}" class="btn btn-secondary update-cart">Update</button>
-                            <button type="button" data-index="{{ product.id }}" class="btn btn-danger delete-product">Delete</button>
+                            <button type="button" data-index="{{ product.id }}" class="btn btn-danger delete-cart">Delete</button>
                             </center>      
                           </div>
                         </div>
@@ -63,7 +63,11 @@
                     </div> 
                 </div>
             {% endfor %}
+            <h3>Total: {{ totals }} lei </h3>    
+                
+            <br/><br/><br/>    
             {% else %}
+            Nu ai nici un articol in cos...    
             {% endif %}
         <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>      
         </div>
