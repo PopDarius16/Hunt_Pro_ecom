@@ -3,6 +3,7 @@ from django.contrib.auth import login, logout
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import get_user_model
+from django.core.paginator import Paginator
 
 
 def category_summary(request):
@@ -20,7 +21,10 @@ def category(request,foo):
     try:
         category = Category.objects.get(name=foo)
         products = Product.objects.filter(category=category)
-        return render(request, 'layout/category.html', {'products': products, 'category': category})
+        paginator = Paginator(products, 8)
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+        return render(request, 'layout/category.html', {'products': page_obj, 'category': category})
     except:
         messages.success(request, "That Category Doesn't Exist..." )
         return redirect('home')
@@ -28,8 +32,10 @@ def category(request,foo):
 
 def home(request):
     products = Product.objects.all()
-    paginate_by = 20
-    return render(request, 'layout/home.html', {'products': products})
+    paginator = Paginator(products, 12)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'layout/home.html', {'products': page_obj})
 
 
 def about(request):
