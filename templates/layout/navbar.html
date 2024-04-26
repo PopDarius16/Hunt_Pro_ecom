@@ -51,11 +51,15 @@
                             <li><a class="dropdown-item" href="#">Separated link</a></li>
                         </ul>
                     </div>    
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-outline-success ">
-                            <a class="dropdown-item" href="{% url 'login' %}">Login</a>
-                        </button>
-                    </div>
+{#                    <div class="btn-group">#}
+{#                        <button type="button" class="btn btn-outline-success ">#}
+{#                            {% if user_id %}#}
+{#                                <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>#}
+{#                            {% else %}#}
+{#                                <a class="dropdown-item" href="{% url 'login' %}">Login</a>#}
+{#                            {% endif %}#}
+{#                        </button>#}
+{#                    </div>#}
                     <a href="{% url 'cart_summary' %}" class="btn btn-outline-dark">
                         <i class="bi-cart-fill me-1"></i>
                         Cart
