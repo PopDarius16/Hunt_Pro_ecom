@@ -1,0 +1,130 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+    <div class="container">
+            <div class="row">
+                <div class="col-md-4 order-md-2 mb-4">
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-muted">Cosul tau</span>
+                        <span class="badge badge-secondary badge-pill">{{ cart_items|length }}</span> <!-- Numărul de produse din coș -->
+                    </h4>
+                    <ul class="list-group mb-3 sticky-top">
+                        <!-- Iterăm prin fiecare produs din coș și îl afișăm -->
+                        {% for item in cart_items %}
+                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 class="my-0">{{ item.name }}</h6>
+                                <small class="text-muted">{{ item.description }}</small> <!-- Descrierea produsului -->
+                            </div>
+                            <span class="text-muted">${{ item.price }}</span> <!-- Prețul produsului -->
+                        </li>
+                        {% endfor %}
+                        <!-- Aici poți adăuga și alte elemente, cum ar fi totalul și codul promoțional -->
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Total (USD)</span>
+                            <strong>${{ total }}</strong> <!-- Totalul comenzii -->
+                        </li>
+                    </ul>
+                    <form class="card p-2">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Promo code">
+                            <div class="input-group-append">
+                                <button type="submit" class="btn btn-secondary">Redeem</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- Aici poți adăuga și alte elemente ale formularului de checkout -->
+            </div>
+        </div>
+        <div class="col-md-8 order-md-1">
+            <h4 class="mb-3">Adresa de facturare</h4>
+            <form class="needs-validation" novalidate="">
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="firstName">Nume de familie</label>
+                        <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                        <div class="invalid-feedback"> Este necesar un nume valid. </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="lastName">Prenume</label>
+                        <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                        <div class="invalid-feedback"> Este necesar un prenume valid. </div>
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="email">Email <span class="text-muted">(Optional)</span></label>
+                    <input type="email" class="form-control" id="email" placeholder="you@example.com">
+                    <div class="invalid-feedback"> Please enter a valid email address for shipping updates. </div>
+                </div>
+                <div class="mb-3">
+                    <label for="address">Adresa</label>
+                    <input type="text" class="form-control" id="address" placeholder="1234 Oradea" required="">
+                    <div class="invalid-feedback"> Introdu te rog adresa de livrare! </div>
+                </div>
+                <div class="mb-3">
+                    <label for="address2">Adresa 2 <span class="text-muted">(Optional)</span></label>
+                    <input type="text" class="form-control" id="address2" placeholder="Apartament sau casa ">
+                </div>
+                <div class="row">
+                    <div class="col-md-5 mb-3">
+                        <label for="country">Oras</label>
+                        <select class="custom-select d-block w-100" id="country" required="">
+                            <option value="">Alege un oras</option>
+                            <option>Romania</option>
+                        </select>
+                        <div class="invalid-feedback"> Te rog sa alegi o tara! </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="state">State</label>
+                        <select class="custom-select d-block w-100" id="state" required="">
+                            <option value="">Alege</option>
+                            <option>Satu Mare</option>
+                            <option>Bucuresti</option>
+                            <option>Oradea</option>
+                            <option>Cluj</option>
+                            <option>Timisoara</option>
+                        </select>
+                        <div class="invalid-feedback"> Te rog sa alegi un oras! </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="zip">Cod Postal</label>
+                        <input type="text" class="form-control" id="zip" placeholder="" required="">
+                        <div class="invalid-feedback"> Cod postal necesar. </div>
+                    </div>
+                </div>
+                <hr class="mb-4">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="same-address">
+                    <label class="custom-control-label" for="same-address">
+                        Adresa de livrare este aceeași cu adresa mea de facturare</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="save-info">
+                    <label class="custom-control-label" for="save-info">
+                        Salvați aceste informații pentru data viitoare</label>
+                </div>
+                <hr class="mb-4">
+                <h4 class="mb-3">Plata</h4>
+                <div class="d-block my-3">
+                    <div class="custom-control custom-radio">
+                        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked="" required="">
+                        <label class="custom-control-label" for="credit">Ramburs la livrare</label>
+                    </div>
+                </div>
+                
+                <hr class="mb-4">
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Plaseaza comanda!</button>
+            </form>
+        </div>
+    </div>
+    <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">© 2017-2019 Company Name</p>
+        <ul class="list-inline">
+            <li class="list-inline-item"><a href="#">Privacy</a></li>
+            <li class="list-inline-item"><a href="#">Terms</a></li>
+            <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+    </footer>
+</div>
+{% endblock content %}

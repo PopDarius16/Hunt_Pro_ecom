@@ -8,35 +8,20 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4"></ul>
                     <div class="btn-group">
                         <button type="button" class="btn btn-outline-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            Vânătoare
+                            Arme vanatoare
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="{% url 'category' 'Arme-lise-de-vânătoare' %}">Arme lise de vânătoare</a></li>
-                            <li><a class="dropdown-item" href="{% url 'category' 'Carabine-de-vânătoare' %}">Carabine de vânătoare</a></li>
-                            <li><a class="dropdown-item" href="{% url 'category' 'Muniții-arme-lise' %}">Muniții arme lise</a></li>
-                            <li><a class="dropdown-item" href="{% url 'category' 'Muniții-carabină' %}">Muniții carabină</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="{% url 'category_summary' %}">Vezi tot</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category' 'Arme-lise-de-vânătoare' %}">Arme lise</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category' 'Carabine-de-vânătoare' %}">Carabine</a></li>
                         </ul>
                     </div>    
                     <div class="btn-group">
                         <button type="button" class="btn btn-outline-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                            Echipamente de vânatoare
+                            Munitii arme
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Geci</a></li>
-                            <li><a class="dropdown-item" href="#">Pantaloni</a></li>
-                            <li><a class="dropdown-item" href="#">Veste</a></li>
-                            <li><a class="dropdown-item" href="#">Bluze și pulovere</a></li>
-                            <li><a class="dropdown-item" href="#">Tricouri</a></li>
-                            <li><a class="dropdown-item" href="#">Haine de corp</a></li>
-                            <li><a class="dropdown-item" href="#">Pălării/Căciuli/Șepci</a></li>
-                            <li><a class="dropdown-item" href="#">Mănuși</a></li>
-                            <li><a class="dropdown-item" href="#">Cizme</a></li>
-                            <li><a class="dropdown-item" href="#">Rucsacuri si genți</a></li>
-                            <li><a class="dropdown-item" href="#">Accesorii</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Vezi tot</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category' 'Muniții-arme-lise' %}">Muniții lise</a></li>
+                            <li><a class="dropdown-item" href="{% url 'category' 'Muniții-carabină' %}">Muniții carabină</a></li>
                         </ul>
                     </div>
                     <div class="btn-group">
@@ -60,7 +45,7 @@
 {#                            {% endif %}#}
 {#                        </button>#}
 {#                    </div>#}
-                    <a href="{% url 'cart_summary' %}" class="btn btn-outline-dark">
+                    <a href="{% url 'cart_detail' %}" class="btn btn-outline-dark">
                         <i class="bi-cart-fill me-1"></i>
                         Cart
                         <span class="badge bg-dark text-white ms-1 rounded-pill" id="cart_quantity">{{ cart|length }}</span>

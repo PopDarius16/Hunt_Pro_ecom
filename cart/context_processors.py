@@ -1,5 +1,5 @@
-from .views import Cart
+from .views import CartItem
 
 
 def cart(request):
-    return {'cart': Cart(request)}
+    return {'cart': CartItem(request)}
