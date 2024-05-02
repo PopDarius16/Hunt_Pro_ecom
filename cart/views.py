@@ -13,14 +13,14 @@ def add_to_cart(request, product_id):
     else:
         CartItem.objects.create(product_id=product_id)
         messages.success(request, "Item added to your cart.")
-    return redirect("cart:cart_detail")
+    return redirect('cart_detail')
 
 
 def remove_from_cart(request, cart_item_id):
     cart_item = get_object_or_404(CartItem, id=cart_item_id)
     cart_item.delete()
     messages.success(request, "Item removed from your cart.")
-    return redirect("cart:cart_detail")
+    return redirect("cart/cart_detail")
 
 
 def cart_detail(request):
@@ -38,7 +38,7 @@ def product_detail(request, product_id):
 
     if request.method == "POST":
         messages.success(request, f"{product.name} added to your cart.")
-        return redirect("cart:add_to_cart", product_id=product.id)
+        return redirect("cart/add_to_cart", product_id=product.id)
 
     context = {
         "product": product,

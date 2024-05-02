@@ -59,33 +59,5 @@
         {% endif %}
     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>      
     </div>
-<script>
-
-//Delete Item From Cart
-$(document).on('click', '.delete-cart', function(e){
-    e.preventDefault();
-    
-    $.ajax({
-        type: 'POST',
-        url: '{% url 'cart_delete' %}',
-        data: {
-            product_id: $(this).data('index'),
-             csrfmiddlewaretoken: '{{ csrf_token }}',
-            action: 'post'
-        },
-        success: function(json){
-            location.reload()
-        },
-        error: function(xhr, errmsg, err){
-            
-        }
         
-    });
-    
-    
-})
-
-
-
-</script>
 {% endblock %}

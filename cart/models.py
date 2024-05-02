@@ -12,5 +12,5 @@ class CartItem(models.Model):
         return f"{self.quantity} x {self.product}"
 
     def get_absolute_url(self):
-        return reverse("cart:cart_detail")
+        return reverse("cart/cart_detail")
 

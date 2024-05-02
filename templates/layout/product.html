@@ -36,7 +36,7 @@
                 </div>    
             <br/><br/>
             <a href="{% url 'home' %}" class="btn btn-secondary">Pagina principala</a> 
-            <button type="button" value="{{ product.id }}" class="btn btn-secondary" id="add-cart">Add To Cart</button>    
+            <button type="button" value="{{ product.id }}" class="btn btn-secondary add-to-cart" id="add_cart_{{ product.id }}">Adaugă în coș</button>    
             </center>      
           </div>
         </div>
@@ -44,34 +44,28 @@
     </div> 
 </div>
         
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script>
-$(document).on('click', '#add-cart', function(e){
-    e.preventDefault();
-    $.ajax({
-        type: 'POST',
-        url: '{% url 'cart_detail' %}',
-        data: {
-            product_id: $('#add-cart').val(),
-            product_qty: $('#qty-cart option:selected').text(),
-            csrfmiddlewaretoken: '{{ csrf_token }}',
-            action: 'post'
-        },
-        success: function(json){
-            // console.log(json)
-            document.getElementById("cart_quantity").
-                textContent = json.qty
-        },
-        error: function(xhr, errmsg, err){
-            
-        }
-        
+    $(document).ready(function() {
+        $(".add-to-cart").click(function() {
+            var productId = $(this).val(); // Obține ID-ul produsului
+            $.ajax({
+                url: '/cart_detail/', // URL-ul către view-ul Django care adaugă produsul în coș
+                type: 'POST',
+                data: {
+                    'product_id': productId
+                },
+                success: function(data) {
+                    // Poți trata aici răspunsul primit de la server
+                    alert('Produsul a fost adăugat în coș!');
+                },
+                error: function(xhr, errmsg, err) {
+                    // Poți trata aici eventualele erori
+                    alert('A apărut o eroare. Vă rugăm să încercați din nou mai târziu.');
+                }
+            });
+        });
     });
-    
-    
-})
-
-
-
 </script>
                     
     
