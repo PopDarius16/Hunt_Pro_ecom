@@ -8,7 +8,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('check_out', '0001_initial'),
+        ('payment', '0001_initial'),
         migrations.swappable_dependency(settings.AUTH_USER_MODEL),
     ]
 
@@ -28,7 +28,7 @@ class Migration(migrations.Migration):
                 ('check_out_time', models.DateTimeField(auto_now_add=True)),
                 ('return_date', models.DateTimeField()),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-                ('item', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='check_out.item')),
+                ('item', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='payment.item')),
             ],
         ),
         migrations.DeleteModel(

@@ -6,7 +6,7 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('check_out', '0002_item_checkout_delete_checkin'),
+        ('payment', '0002_item_checkout_delete_checkin'),
     ]
 
     operations = [
