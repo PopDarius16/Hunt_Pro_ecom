@@ -16,7 +16,7 @@
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="{% url 'update_user' %}">Profilul utilizatorului</a></li>
                 <li><hr class="dropdown-divider" /></li>
-<li><a class="dropdown-item" href="{% url 'update_info'  %}">User Info</a></li>
+<li><a class="dropdown-item" href="{% url 'update_info'  %}">Informații despre utilizator</a></li>
                             </ul>
                         </li>
 
@@ -34,13 +34,18 @@
 
 
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Produse</a>
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" 
+                               role="button" data-bs-toggle="dropdown" aria-expanded="false">Produse</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a class="dropdown-item" href="{% url 'category' 'Arme-lise-de-vânătoare' %}">Arme lise</a></li>
-                                <li><a class="dropdown-item" href="{% url 'category' 'Carabine-de-vânătoare' %}">Carabine</a></li>
+                                <li><a class="dropdown-item" href="{% url 'category' 'Arme-lise-de-vânătoare' %}">
+                                    Arme lise</a></li>
+                                <li><a class="dropdown-item" href="{% url 'category' 'Carabine-de-vânătoare' %}">
+                                    Carabine</a></li>
                                 <li><hr class="dropdown-divider" /></li>
-                                <li><a class="dropdown-item" href="{% url 'category' 'Muniții-arme-lise' %}">Muniții lise</a></li>
-                                <li><a class="dropdown-item" href="{% url 'category' 'Muniții-carabină' %}">Muniții carabină</a></li>
+                                <li><a class="dropdown-item" href="{% url 'category' 'Muniții-arme-lise' %}">
+                                    Muniții lise</a></li>
+                                <li><a class="dropdown-item" href="{% url 'category' 'Muniții-carabină' %}">
+                                    Muniții carabină</a></li>
                             </ul>
                         </li>
                     </ul>

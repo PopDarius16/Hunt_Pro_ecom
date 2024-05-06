@@ -32,7 +32,8 @@ class ShippingForm(forms.ModelForm):
 
 class PaymentForm(forms.Form):
     card_name = forms.CharField(label="",
-                                widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Numele cardului'}),
+                                widget=forms.TextInput(attrs={'class': 'form-control',
+                                                              'placeholder': 'Numele cardului'}),
                                 required=True)
     card_number = forms.CharField(label="",
                                   widget=forms.TextInput(attrs={'class': 'form-control',

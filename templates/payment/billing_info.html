@@ -7,8 +7,8 @@
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Billing Info</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">Enter Your Payment Info...</p>
+                    <h1 class="display-4 fw-bolder">Informatii de facturare</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Introduceți informațiile dumneavoastră de plată!</p>
                 </div>
             </div>
         </header>
@@ -19,19 +19,19 @@
                     <div class="col-md-6 offset-md-3">
           <div class="card">
           <div class="card-header">
-            Order Summary
+            Toate produsele dumnevoastră!
           </div>
           <div class="card-body">
             {% for product in cart_products %}
                 {{ product.name }}: 
                     {% if product.is_sale %}
-                        ${{ product.sale_price }}
+                        Lei {{ product.sale_price }}
                     {% else %}
-                        ${{ product.price }}
+                        Lei {{ product.price }}
                 {% endif %}
 
                 <br/>
-                <small>Quantity: 
+                <small>Cantitate: 
                 {% for key, value in quantities.items %}
                     {% if key == product.id|slugify %}
                         {{ value }}
@@ -40,15 +40,15 @@
                 <br/><br/>
 
             {% endfor %}
-            Total:  ${{ totals }}
+            Total:  Lei {{ totals }}
             <br/><br/>
-            <a href="{% url 'cart_summary' %}" class="btn btn-sm btn-outline-secondary">Update Items</a>
+            <a href="{% url 'cart_summary' %}" class="btn btn-sm btn-outline-secondary">Actualizează produsele!</a>
           </div>
         </div>
 <br/><br/>
 <div class="card">
   <div class="card-header">
-    Shipping Info
+    Informații despre livrare
   </div>
   <div class="card-body">
     
@@ -61,7 +61,7 @@
     Zipcode: {{ shipping_info.shipping_zipcode }}<br/>
     Country: {{ shipping_info.shipping_country }}<br/>
     <br/>
-    <a href="{% url 'checkout' %}" class="btn btn-outline-secondary">Update Shipping</a>
+    <a href="{% url 'checkout' %}" class="btn btn-outline-secondary">Actualizează datele de livrare!</a>
 
   </div>
 </div>
@@ -69,7 +69,7 @@
 
 <div class="card">
   <div class="card-header">
-    Billing Info
+    Informații de facturare:
   </div>
   <div class="card-body">
     <form method="POST" action="{% url 'process_order' %}">
@@ -83,7 +83,7 @@
 
 
 <button type="submit" class="btn btn-secondary">
-  Pay Now
+  Platește acum!
 </button>
 </form>
 <br/><br/>

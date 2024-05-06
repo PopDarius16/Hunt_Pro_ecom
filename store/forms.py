@@ -103,26 +103,26 @@ class SignUpForm(UserCreationForm):
         super(SignUpForm, self).__init__(*args, **kwargs)
 
         self.fields['username'].widget.attrs['class'] = 'form-control'
-        self.fields['username'].widget.attrs['placeholder'] = 'Nume utilizator'
+        self.fields['username'].widget.attrs['placeholder'] = 'Nume de utilizator'
         self.fields['username'].label = ''
         self.fields[
-            'username'].help_text = ('<span class="form-text text-muted">'
-                                     '<small>Necesar. 30 de caractere sau mai puțin. Numai litere, cifre și @/./+/-/_.'
-                                     '</small></span>')
+            'username'].help_text = ('<span class="form-text text-muted"><small>Necesar. 150 de caractere sau mai '
+                                     'puțin.'
+                                     'Numai litere, cifre și @/./+/-/_.</small></span>')
 
         self.fields['password1'].widget.attrs['class'] = 'form-control'
-        self.fields['password1'].widget.attrs['placeholder'] = 'Password'
+        self.fields['password1'].widget.attrs['placeholder'] = 'Parola'
         self.fields['password1'].label = ''
         self.fields[
-            'password1'].help_text = ('<ul class="form-text text-muted small">'
-                                      '<li>Parola dvs. nu poate fi prea asemănătoare cu celelalte informații personale.'
-                                      '</li><li>Parola dvs. trebuie să conțină cel puțin 8 caractere.'
-                                      '</li><li>Parola dvs. nu poate fi o parolă folosită în mod obișnuit.'
-                                      '</li><li>Parola dvs. nu poate fi în întregime numerică.')
+            'password1'].help_text = ('<ul class="form-text text-muted small"><li>Parola dvs. nu poate fi prea '
+                                      'asemănătoare'
+                                      'la celelalte informații personale.</li><li>Parola dvs. trebuie sa conțină '
+                                      'cel puțin 8 caractere.</li><li>Parola dvs. nu poate fi o parolă folosită în '
+                                      'mod obișnuit.</li><li>Parola dvs. nu poate fi în întregime numerică.</li></ul>')
 
         self.fields['password2'].widget.attrs['class'] = 'form-control'
         self.fields['password2'].widget.attrs['placeholder'] = 'Confirmă parola'
         self.fields['password2'].label = ''
         self.fields[
-            'password2'].help_text = ('<span class="form-text text-muted">'
-                                      '<small>Introduceți aceeași parolă ca înainte, pentru verificare.</small></span>')
+            'password2'].help_text = ('<span class="form-text text-muted"><small>Introduceți aceeași parolă ca '
+                                      'înainte, pentru verificare.</small></span>')

@@ -36,12 +36,12 @@
 
 
         {% else %}
-            ${{ product.price }}
+            Lei {{ product.price }}
             
         {% endif %}
             <br/><br/>
 <div class="row justify-content-center">
-    <div class="col-md-2">Quantity:</div>
+    <div class="col-md-2">Cantitate:</div>
                 <div class="col-md-2">
                 <select class="form-select form-select-sm" id="qty-cart">
                   <option value="1">1</option>
@@ -53,8 +53,8 @@
                 </div>
             </div>
             <br/><br/>
-        <a href="{% url 'home'%}" class="btn btn-secondary">Home</a>
-        <button type="button" value="{{ product.id }}" class="btn btn-secondary" id="add-cart">Add To Cart</button>
+        <a href="{% url 'home'%}" class="btn btn-secondary">Pagina principală</a>
+        <button type="button" value="{{ product.id }}" class="btn btn-secondary" id="add-cart">Adaugă în coș</button>
 
     </center>
       </div>

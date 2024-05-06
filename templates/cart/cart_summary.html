@@ -7,8 +7,8 @@
         <header class="bg-dark py-5">
             <div class="container px-4 px-lg-5 my-5">
                 <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Shopping Cart</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">View Your Cart...</p>
+                    <h1 class="display-4 fw-bolder">Coș de cumpărături</h1>
+                    <p class="lead fw-normal text-white-50 mb-0">Vezi coșul tău de cumpărături...</p>
                 </div>
             </div>
         </header>
@@ -38,7 +38,7 @@
 
                 <!-- Product price-->
                 <strike>
-                ${{ product.price }}
+                Lei {{ product.price }}
                 </strike>
                 &nbsp;
                 ${{ product.sale_price }}
@@ -46,12 +46,12 @@
 
 
         {% else %}
-            ${{ product.price }}
+            Lei {{ product.price }}
             
         {% endif %}
             <br/><br/>
         <div class="row justify-content-center">
-    <div class="col-md-2">Quantity:</div>
+    <div class="col-md-2">Cantitate:</div>
                 <div class="col-md-2">
                 <select class="form-select form-select-sm" id="select{{product.id}}">
                   
@@ -71,9 +71,9 @@
                 </div>
             </div>
             <br/><br/>
-        <a href="{% url 'home'%}" class="btn btn-secondary">Home</a>
-        <button type="button" data-index="{{product.id}}" class="btn btn-secondary update-cart">Update</button>
-        <button type="button" data-index="{{product.id}}" class="btn btn-danger delete-product">Remove</button>
+        <a href="{% url 'home'%}" class="btn btn-secondary">Pagina principală</a>
+        <button type="button" data-index="{{product.id}}" class="btn btn-secondary update-cart">Actualizează</button>
+        <button type="button" data-index="{{product.id}}" class="btn btn-danger delete-product">Sterge</button>
         
     </center>
       </div>
@@ -85,13 +85,13 @@
 
         	{% endfor %}
             <div align="right">
-            <h3>Total: ${{ totals }}</h3>
+            <h3>Total: Lei {{ totals }}</h3>
             <a href="{% url 'checkout' %}" class="btn btn-success">Checkout</a>
 
             </div>
             <br/><br/><br/>
         	{% else %}
-        	There's Nothing In Your Cart...
+        	Nu ai nici un produs în cos...
         	<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         {% endif %}
     	</div>

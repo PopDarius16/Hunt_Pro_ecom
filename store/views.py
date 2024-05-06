@@ -20,12 +20,9 @@ from cart.cart import Cart
 
 
 def search(request):
-    # Determine if they filled out the form
     if request.method == "POST":
         searched = request.POST['searched']
-        # Query The Products DB Model
         searched = Product.objects.filter(Q(name__icontains=searched) | Q(description__icontains=searched))
-        # Test for null
         if not searched:
             messages.success(request, "Produsul respectiv nu există... Vă rugăm să încercați din nou!")
             return render(request, "layout/search.html", {})
@@ -52,11 +49,11 @@ def update_info(request):
             # Save shipping form
             shipping_form.save()
 
-            messages.success(request, "Your Info Has Been Updated!!")
+            messages.success(request, "Informațiile tale au fost actualizate.")
             return redirect('home')
         return render(request, "layout/update_info.html", {'form': form, 'shipping_form': shipping_form})
     else:
-        messages.success(request, "You Must Be Logged In To Access That Page!!")
+        messages.success(request, "Trebuie să fii autentificat pentru a accesa pagina respectivă.")
         return redirect('home')
 
 
@@ -69,7 +66,7 @@ def update_password(request):
             # Is the form valid
             if form.is_valid():
                 form.save()
-                messages.success(request, "Your Password Has Been Updated...")
+                messages.success(request, "Parola ta a fost actualizată.")
                 login(request, current_user)
                 return redirect('update_user')
             else:
@@ -80,7 +77,7 @@ def update_password(request):
             form = ChangePasswordForm(current_user)
             return render(request, "layout/update_password.html", {'form': form})
     else:
-        messages.success(request, "You Must Be Logged In To View That Page...")
+        messages.success(request, "Trebuie să fii conectat pentru a vedea pagina respectivă.")
         return redirect('home')
 
 
@@ -101,11 +98,6 @@ def update_user(request):
         return redirect('home')
 
 
-def category_summary(request):
-    categories = Category.objects.all()
-    return render(request, 'layout/category_summary.html', {"categories": categories})
-
-
 def category(request, foo):
     foo = foo.replace('-', ' ')
     try:
@@ -116,7 +108,7 @@ def category(request, foo):
         page_obj = paginator.get_page(page_number)
         return render(request, 'layout/category.html', {'products': page_obj, 'category': category})
     except:
-        messages.success(request, "That Category Doesn't Exist...")
+        messages.success(request, "Categoria respectivă nu există.")
         return redirect('home')
 
 
@@ -160,10 +152,10 @@ def login_user(request):
                 for key, value in converted_cart.items():
                     cart.db_add(product=key, quantity=value)
 
-            messages.success(request, ("You Have Been Logged In!"))
+            messages.success(request, ("Ai fost autentificat!"))
             return redirect('home')
         else:
-            messages.success(request, ("There was an error, please try again..."))
+            messages.success(request, ("A apărut o eroare, te rog sa incerci din nou..."))
             return redirect('login')
 
     else:
@@ -172,7 +164,7 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    messages.success(request, ("You have been logged out...Thanks for stopping by..."))
+    messages.success(request, ("Ați fost deconectat! Îți mulțumim că ai trecut pe aici și te mai asteptăm."))
     return redirect('home')
 
 
