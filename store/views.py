@@ -34,24 +34,19 @@ def search(request):
 
 def update_info(request):
     if request.user.is_authenticated:
-        # Get Current User
         current_user = Profile.objects.get(user__id=request.user.id)
-        # Get Current User's Shipping Info
         shipping_user = ShippingAddress.objects.get(user__id=request.user.id)
 
-        # Get original User Form
         form = UserInfoForm(request.POST or None, instance=current_user)
-        # Get User's Shipping Form
         shipping_form = ShippingForm(request.POST or None, instance=shipping_user)
         if form.is_valid() or shipping_form.is_valid():
-            # Save original form
             form.save()
-            # Save shipping form
             shipping_form.save()
 
             messages.success(request, "Informațiile tale au fost actualizate.")
             return redirect('home')
-        return render(request, "layout/update_info.html", {'form': form, 'shipping_form': shipping_form})
+        return render(request, "layout/update_info.html", {'form': form,
+                                                           'shipping_form': shipping_form})
     else:
         messages.success(request, "Trebuie să fii autentificat pentru a accesa pagina respectivă.")
         return redirect('home')
@@ -60,10 +55,8 @@ def update_info(request):
 def update_password(request):
     if request.user.is_authenticated:
         current_user = request.user
-        # Did they fill out the form
         if request.method == 'POST':
             form = ChangePasswordForm(current_user, request.POST)
-            # Is the form valid
             if form.is_valid():
                 form.save()
                 messages.success(request, "Parola ta a fost actualizată.")
@@ -137,18 +130,11 @@ def login_user(request):
         if user is not None:
             login(request, user)
 
-            # Do some shopping cart stuff
             current_user = Profile.objects.get(user__id=request.user.id)
-            # Get their saved cart from database
             saved_cart = current_user.old_cart
-            # Convert database string to python dictionary
             if saved_cart:
-                # Convert to dictionary using JSON
                 converted_cart = json.loads(saved_cart)
-                # Add the loaded cart dictionary to our session
-                # Get the cart
                 cart = Cart(request)
-                # Loop thru the cart and add the items from the database
                 for key, value in converted_cart.items():
                     cart.db_add(product=key, quantity=value)
 
