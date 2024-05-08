@@ -58,9 +58,7 @@ class ChangePasswordForm(SetPasswordForm):
 
 
 class UpdateUserForm(UserChangeForm):
-    # Hide Password stuff
     password = None
-    # Get other fields
     email = forms.EmailField(label="",
                              widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Adresa de mail'}),
                              required=False)
