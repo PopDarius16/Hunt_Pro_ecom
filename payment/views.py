@@ -48,7 +48,7 @@ def process_order(request):
                 if key == "session_key":
                     del request.session[key]
 
-            messages.success(request, "Comanda plasata cu succes")
+            messages.success(request, "Comanda plasată cu succes")
             return redirect('home')
 
         else:
@@ -75,7 +75,7 @@ def process_order(request):
                 if key == "session_key":
                     del request.session[key]
 
-            messages.success(request, "Comanda plasata cu succes!")
+            messages.success(request, "Comanda plasată cu succes!")
             return redirect('home')
 
     else:
